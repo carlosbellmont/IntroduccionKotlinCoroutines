@@ -4,7 +4,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 fun main() {
-    println("Empiezo main2")
+    println("Empiezo main3A")
     runBlocking {
         println("Entro en el blocking")
         println("Lanzo corrutina1")

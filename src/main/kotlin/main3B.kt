@@ -12,7 +12,7 @@ fun main() {
             println("Tarea del runBlocking")
         }
 
-        coroutineScope { // Definimos un Scope, de aquí no salimos hasta que todas las corrutinas interiores no hayan acabado.
+        coroutineScope { // Definimos un Scope, de aquí no salimos hasta que todas las corrutinas interiores hayan acabado.
             launch {
                 delay(500L)
                 println("Tarea del launch del coroutine scope")

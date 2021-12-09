@@ -9,7 +9,7 @@ fun main(){
             delay(1000)
             "Hola"
         }
-        println("Estoy listo para imprimir pero \"a\" aún está vacia por lo que toca esperar")
+        println("Estoy listo para imprimir pero \"contenido\" aún está vacío por lo que toca esperar")
         println(contenido.await())
         println("Impreso!")
 
