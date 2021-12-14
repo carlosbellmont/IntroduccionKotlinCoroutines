@@ -1,4 +1,3 @@
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -9,18 +8,18 @@ fun main() {
         println("Entro en el blocking")
         println("Lanzo corrutina1")
 
-        GlobalScope.launch {
+        launch {
             delay(1000)
             println("Termino corrutina1")
         }
         println("Lanzo corrutina2")
 
-        GlobalScope.launch {
+        launch {
             delay(4000)
             println("Termino corrutina2")
         }
         println("Empiezo a dormir")
-        delay(3000)
+        //delay(3000)
         println("Dejo de dormir")
 
 

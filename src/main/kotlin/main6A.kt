@@ -2,24 +2,23 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 
 val mutex = Mutex()
 
+var caja2 = 0
+
 fun main() {
-    for (i in 1..10){
-        GlobalScope.launch {
-            escribirConMutex(i)
+    runBlocking {
+        for (i in 1..1000) {
+            launch {
+                mutex.withLock {
+                    caja2 = caja2 + 1
+                }
+            }
         }
     }
-    Thread.sleep(12000)
-}
-
-suspend fun escribirConMutex(i : Int) {
-    mutex.withLock {
-        println("Empiezo a escribir $i")
-        delay(1000)
-        println("Termino de escribir $i")
-    }
+    println("caja2 = $caja2")
 }

@@ -2,19 +2,18 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+
+var caja = 0
 
 fun main() {
-
-    for (i in 1..10){
-        GlobalScope.launch {
-            escribirSinMutex(i)
+    runBlocking {
+        for (i in 1..1000) {
+            launch {
+                caja = caja + 1
+            }
         }
     }
-    Thread.sleep(10000)
+    println("caja = $caja")
 }
 
-suspend fun escribirSinMutex(i : Int) {
-    println("Empiezo a escribir $i")
-    delay(1000)
-    println("Termino de escribir $i")
-}
